@@ -110,8 +110,57 @@ const Index = () => {
     ? isFlask
     : snapsDetected;
 
+  const connectnew = async () => {
+    try {
+      const snaps = await window.ethereum.request({
+        method: "wallet_requestSnaps",
+        params: {
+          "local:http://localhost:8080": {},
+        },
+      });
+      console.log("snaps:"+snaps)
+  } catch (error) {
+      console.error('Error in RPC requests:', error);
+  }
+    
+  };
+
+  async function getAccounts() {
+    const accounts = await window.ethereum.request<string[]>({
+      method: 'eth_requestAccounts',
+    });
+    console.log(accounts)
+    return accounts as string[];
+  }
+
   const handleSendHelloClick = async () => {
-    await invokeSnap({ method: 'hello' });
+    // Invoke the "hello" JSON-RPC method exposed by the Snap.
+
+    try {
+      // const firstResult = await window.ethereum.request({
+      //   "method": "wallet_requestPermissions",
+      //   "params": [
+      //     {
+      //       "eth_accounts": {}
+      //     }
+      //   ]
+      // });
+      const response = await window.ethereum.request({
+        method: "wallet_invokeSnap",
+        params: {
+          snapId: "local:http://localhost:8080",
+          request: {
+            method: "get_info",
+          },
+        },
+      });
+      console.log('response:', response);
+  } catch (error) {
+      console.error('Error in RPC requests:', error);
+  }
+
+
+    // getAccounts(); // "world!"
   };
 
   return (
@@ -147,7 +196,7 @@ const Index = () => {
                 'Get started by connecting to and installing the example snap.',
               button: (
                 <ConnectButton
-                  onClick={requestSnap}
+                  onClick={connectnew}
                   disabled={!isMetaMaskReady}
                 />
               ),
@@ -163,7 +212,7 @@ const Index = () => {
                 'While connected to a local running snap this button will always be displayed in order to update the snap if a change is made.',
               button: (
                 <ReconnectButton
-                  onClick={requestSnap}
+                  onClick={connectnew}
                   disabled={!installedSnap}
                 />
               ),

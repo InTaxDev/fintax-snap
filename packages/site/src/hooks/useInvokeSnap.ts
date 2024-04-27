@@ -35,6 +35,6 @@ export const useInvokeSnap = (snapId = defaultSnapOrigin) => {
         },
       },
     });
-
+    
   return invokeSnap;
 };

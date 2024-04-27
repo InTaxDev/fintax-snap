@@ -1,27 +1,29 @@
 {
   "version": "0.1.0",
-  "description": "An example Snap written in TypeScript.",
-  "proposedName": "TypeScript Example",
+  "description": "A professional tool for managing crypto asset taxes and finance.",
+  "proposedName": "FinTax, for taxes and finance.",
   "repository": {
     "type": "git",
-    "url": "https://github.com/MetaMask/template-snap-monorepo.git"
+    "url": "https://github.com/InTaxDev/FinTax-snap.git"
   },
   "source": {
-    "shasum": "aNmYa5w4HhPemRFEpc2IiMpVdeh8MWphbdLs3XxaScQ=",
+    "shasum": "+AlAlE6h3kjm4fiqr4+sj7A0fH4qlmKXfrtn3t6VVpA=",
     "location": {
       "npm": {
         "filePath": "dist/bundle.js",
-        "packageName": "snap",
+        "packageName": "@fintax/fintax-snap",
         "registry": "https://registry.npmjs.org/"
       }
     }
   },
   "initialPermissions": {
-    "snap_dialog": {},
+    "endowment:network-access": {},
+    "snap_manageState": {},
     "endowment:rpc": {
       "dapps": true,
       "snaps": false
-    }
+    },
+    "endowment:ethereum-provider": {}
   },
   "manifestVersion": "0.1"
 }
