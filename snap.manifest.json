@@ -7,11 +7,11 @@
     "url": "https://github.com/InTaxDev/fintax-snap.git"
   },
   "source": {
-    "shasum": "Q6lRIeWsFClm8LiUfl1hWzwJMmmz0UQRoVNjkGcuqRg=",
+    "shasum": "I82Lxga9CiQRkWlD3fp5bWco3U0fkaAalUdxtNPdVgY=",
     "location": {
       "npm": {
         "filePath": "dist/bundle.js",
-        "packageName": "fintax-metamask-snap",
+        "packageName": "@fintax/fintax-snap",
         "registry": "https://registry.npmjs.org/"
       }
     }
