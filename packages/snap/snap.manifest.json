@@ -4,14 +4,14 @@
   "proposedName": "FinTax, for taxes and finance.",
   "repository": {
     "type": "git",
-    "url": "https://github.com/InTaxDev/FinTax-snap.git"
+    "url": "https://github.com/InTaxDev/fintax-snap.git"
   },
   "source": {
-    "shasum": "feLB6bUJh1UVzaUrcxHApzm5mfy5REHOKRswHOVd1gk=",
+    "shasum": "uKGeXoLTxOLC1lZHfXAHWQpV51J/6LPt2CP6yonL8K0=",
     "location": {
       "npm": {
         "filePath": "dist/bundle.js",
-        "packageName": "@fintax/fintax-snap",
+        "packageName": "fintax-snap",
         "registry": "https://registry.npmjs.org/"
       }
     }
