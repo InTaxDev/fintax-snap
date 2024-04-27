@@ -6210,9 +6210,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"fintax-snap@workspace:packages/snap":
+"fintax-metamask-snap@workspace:packages/snap":
   version: 0.0.0-use.local
-  resolution: "fintax-snap@workspace:packages/snap"
+  resolution: "fintax-metamask-snap@workspace:packages/snap"
   dependencies:
     "@jest/globals": ^29.5.0
     "@metamask/auto-changelog": ^3.4.4
