@@ -1594,6 +1594,7 @@ __metadata:
     "@metamask/snaps-cli": ^6.1.0
     "@metamask/snaps-jest": ^7.0.0
     "@metamask/snaps-sdk": ^4.0.1
+    "@metamask/utils": ^6.0.1
     "@typescript-eslint/eslint-plugin": ^5.42.1
     "@typescript-eslint/parser": ^5.42.1
     buffer: ^6.0.3
