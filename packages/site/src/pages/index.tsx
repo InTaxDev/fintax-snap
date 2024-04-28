@@ -113,23 +113,22 @@ const Index = () => {
   const connectnew = async () => {
     try {
       const snaps = await window.ethereum.request({
-        method: "wallet_requestSnaps",
+        method: 'wallet_requestSnaps',
         params: {
-          "local:http://localhost:8080": {},
+          'local:http://localhost:8080': {},
         },
       });
-      console.log("snaps:"+snaps)
-  } catch (error) {
-      console.error('Error in RPC requests:', error);
-  }
-    
+      console.log(`snaps:${snaps}`);
+    } catch (snapError) {
+      console.error('Error in RPC requests:', snapError);
+    }
   };
 
   async function getAccounts() {
     const accounts = await window.ethereum.request<string[]>({
       method: 'eth_requestAccounts',
     });
-    console.log(accounts)
+    console.log(accounts);
     return accounts as string[];
   }
 
@@ -146,19 +145,18 @@ const Index = () => {
       //   ]
       // });
       const response = await window.ethereum.request({
-        method: "wallet_invokeSnap",
+        method: 'wallet_invokeSnap',
         params: {
-          snapId: "local:http://localhost:8080",
+          snapId: 'local:http://localhost:8080',
           request: {
-            method: "get_info",
+            method: 'get_info',
           },
         },
       });
       console.log('response:', response);
-  } catch (error) {
+    } catch (error) {
       console.error('Error in RPC requests:', error);
-  }
-
+    }
 
     // getAccounts(); // "world!"
   };
