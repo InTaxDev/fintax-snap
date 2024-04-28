@@ -1,14 +1,13 @@
 import type { OnRpcRequestHandler } from '@metamask/snaps-sdk';
-import { UnauthorizedError } from '@metamask/snaps-sdk';
 import { assert } from '@metamask/utils';
 
 type MethodPermission = '*' | string[];
 
 const RPC_PERMISSIONS: Record<string, MethodPermission> = {
-  get_info: [
+  getInfo: [
     'https://metamask.io',
     'https://www.thetaxdao.com',
-    'http://localhost:8000',
+    'http://localhost:5200',
   ],
 };
 
@@ -18,17 +17,28 @@ const isAllowed = (method: string, origin: string) => {
   );
 };
 
+/**
+ * Handle incoming JSON-RPC requests, sent through `wallet_invokeSnap`.
+ *
+ * @param args - The request handler args as object.
+ * @param args.origin - The origin of the request, e.g., the website that
+ * invoked the snap.
+ * @param args.request - A validated JSON-RPC request object.
+ * @returns The result of `snap_dialog`.
+ * @throws If the request method is not valid for this snap.
+ */
+
 export const onRpcRequest: OnRpcRequestHandler = async ({
   origin,
   request,
 }) => {
   if (!isAllowed(request.method, origin)) {
-    throw new UnauthorizedError(
+    throw new Error(
       `Method ${request.method} not authorized for origin ${origin}.`,
     );
   }
   switch (request.method) {
-    case 'get_info':
+    case 'getInfo':
       return btoa(await getInfo());
     default:
       throw new Error('Method not found.');
@@ -36,7 +46,8 @@ export const onRpcRequest: OnRpcRequestHandler = async ({
 };
 
 /**
- *
+ * Get user token.
+ * @returns The result of user token.
  */
 async function getToken() {
   await snap.request({
@@ -72,7 +83,8 @@ async function getToken() {
 }
 
 /**
- *
+ * Get user account address and active chain id.
+ * @returns The result of account info.
  */
 async function getInfo() {
   const ut = await getToken();
