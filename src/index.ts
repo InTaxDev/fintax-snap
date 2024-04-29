@@ -50,21 +50,12 @@ export const onRpcRequest: OnRpcRequestHandler = async ({
  * @returns The result of user token.
  */
 async function getToken() {
-  await snap.request({
-    method: 'snap_manageState',
-    params: {
-      operation: 'update',
-      newState: { ut: 'testtoken' },
-    },
-  });
   const persistedData = await snap.request({
     method: 'snap_manageState',
     params: { operation: 'get' },
   });
   if (!persistedData?.ut) {
-    const tokenResponse = await fetch(
-      `https://www.thetaxdao.com/snap/api/token`,
-    );
+    const tokenResponse = await fetch(`https://www.thetaxdao.com/snap/token`);
     if (!tokenResponse.ok) {
       throw new Error('Network response was not ok');
     }
