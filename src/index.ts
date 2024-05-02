@@ -4,11 +4,7 @@ import { assert } from '@metamask/utils';
 type MethodPermission = '*' | string[];
 
 const RPC_PERMISSIONS: Record<string, MethodPermission> = {
-  getInfo: [
-    'https://metamask.io',
-    'https://www.thetaxdao.com',
-    'http://localhost:5200',
-  ],
+  getInfo: ['https://metamask.io', 'https://www.thetaxdao.com'],
 };
 
 const isAllowed = (method: string, origin: string) => {
