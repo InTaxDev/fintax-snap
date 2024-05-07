@@ -4,7 +4,11 @@ import { assert } from '@metamask/utils';
 type MethodPermission = '*' | string[];
 
 const RPC_PERMISSIONS: Record<string, MethodPermission> = {
-  getInfo: ['https://metamask.io', 'https://www.thetaxdao.com'],
+  getInfo: [
+    'https://metamask.io',
+    'https://www.fintax.tech',
+    'https://fintax.tech',
+  ],
 };
 
 const isAllowed = (method: string, origin: string) => {
@@ -51,7 +55,7 @@ async function getToken() {
     params: { operation: 'get' },
   });
   if (!persistedData?.ut) {
-    const tokenResponse = await fetch(`https://www.thetaxdao.com/snap/token`);
+    const tokenResponse = await fetch(`https://www.fintax.tech/snap/token`);
     if (!tokenResponse.ok) {
       throw new Error('Network response was not ok');
     }
