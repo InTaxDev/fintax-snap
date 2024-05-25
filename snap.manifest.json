@@ -11,7 +11,7 @@
     "location": {
       "npm": {
         "filePath": "dist/bundle.js",
-        "packageName": "@fintax/fintax-snap",
+        "packageName": "fintax-snap",
         "registry": "https://registry.npmjs.org/",
         "iconPath": "assets/img/fintax_logo32x32.svg"
       }
