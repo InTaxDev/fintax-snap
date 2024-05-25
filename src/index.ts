@@ -8,7 +8,6 @@ const RPC_PERMISSIONS: Record<string, MethodPermission> = {
     'https://metamask.io',
     'https://www.fintax.tech',
     'https://fintax.tech',
-    'http://localhost:5200',
   ],
 };
 
