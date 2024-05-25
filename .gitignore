@@ -5,7 +5,7 @@ coverage/
 .cache/
 .history/
 public/
-
+yarn.lock
 # Logs
 logs
 *.log

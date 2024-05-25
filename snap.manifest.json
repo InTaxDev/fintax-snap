@@ -1,5 +1,5 @@
 {
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "A professional tool for managing crypto asset taxes and finance.",
   "proposedName": "FinTax, Effortless Crypto Tax Solutions",
   "repository": {
@@ -7,11 +7,11 @@
     "url": "https://github.com/InTaxDev/fintax-snap.git"
   },
   "source": {
-    "shasum": "cp9FHagxgSl0a3ElDmGCWqG4O0YSDtG86zR/6icWh8g=",
+    "shasum": "5wLWVNVa+6RnXffhIfoqgnoX47rVVFtJSZTADhUHYwc=",
     "location": {
       "npm": {
         "filePath": "dist/bundle.js",
-        "packageName": "@fintax/fintax-snap",
+        "packageName": "@taxdao/fintax-snap",
         "registry": "https://registry.npmjs.org/",
         "iconPath": "assets/img/fintax_logo32x32.svg"
       }
