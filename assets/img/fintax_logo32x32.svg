@@ -1,20 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg id="_图层_1" data-name="图层 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+<svg id="_图层_2" data-name="图层 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
   <defs>
     <style>
       .cls-1 {
-        fill: #24285c;
+        fill: #272362;
       }
 
-      .cls-1, .cls-2 {
+      .cls-1, .cls-2, .cls-3 {
         stroke-width: 0px;
       }
 
       .cls-2 {
-        fill: #e6961f;
+        fill: #fff;
+      }
+
+      .cls-3 {
+        fill: #ef9a12;
       }
     </style>
   </defs>
-  <path class="cls-2" d="M31,14.97H9.19c-4.52,0-8.19-3.67-8.19-8.19h0s21.81,0,21.81,0c4.52,0,8.19,3.67,8.19,8.19h0Z"/>
-  <path class="cls-1" d="M25.2,25.23H9.19c-4.52,0-8.19-3.67-8.19-8.19h0s16.01,0,16.01,0c4.52,0,8.19,3.67,8.19,8.19h0Z"/>
+  <g id="_图层_1-2" data-name="图层 1">
+    <rect class="cls-2" x="0" y="0" width="32" height="32" rx="16" ry="16"/>
+    <g>
+      <path class="cls-3" d="M27.83,15.28H10.48c-3.6,0-6.51-2.92-6.51-6.51h0s17.35,0,17.35,0c3.6,0,6.51,2.92,6.51,6.51h0Z"/>
+      <path class="cls-1" d="M23.22,23.44h-12.73c-3.6,0-6.51-2.92-6.51-6.51h0s12.73,0,12.73,0c3.6,0,6.51,2.92,6.51,6.51h0Z"/>
+    </g>
+  </g>
 </svg>
