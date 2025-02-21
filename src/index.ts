@@ -1,19 +1,15 @@
-import type { OnRpcRequestHandler } from '@metamask/snaps-sdk';
-import { assert } from '@metamask/utils';
+import type { OnRpcRequestHandler } from "@metamask/snaps-sdk";
+import { assert } from "@metamask/utils";
 
-type MethodPermission = '*' | string[];
+type MethodPermission = "*" | string[];
 
 const RPC_PERMISSIONS: Record<string, MethodPermission> = {
-  getInfo: [
-    'https://metamask.io',
-    'https://www.fintax.tech',
-    'https://fintax.tech',
-  ],
+  getInfo: ["https://metamask.io", "https://app.fintax.tech"],
 };
 
 const isAllowed = (method: string, origin: string) => {
   return (
-    RPC_PERMISSIONS[method] === '*' || RPC_PERMISSIONS[method]?.includes(origin)
+    RPC_PERMISSIONS[method] === "*" || RPC_PERMISSIONS[method]?.includes(origin)
   );
 };
 
@@ -34,14 +30,14 @@ export const onRpcRequest: OnRpcRequestHandler = async ({
 }) => {
   if (!isAllowed(request.method, origin)) {
     throw new Error(
-      `Method ${request.method} not authorized for origin ${origin}.`,
+      `Method ${request.method} not authorized for origin ${origin}.`
     );
   }
   switch (request.method) {
-    case 'getInfo':
+    case "getInfo":
       return btoa(await getInfo());
     default:
-      throw new Error('Method not found.');
+      throw new Error("Method not found.");
   }
 };
 
@@ -51,20 +47,20 @@ export const onRpcRequest: OnRpcRequestHandler = async ({
  */
 async function getToken() {
   const persistedData = await snap.request({
-    method: 'snap_manageState',
-    params: { operation: 'get' },
+    method: "snap_manageState",
+    params: { operation: "get" },
   });
   if (!persistedData?.ut) {
     const tokenResponse = await fetch(`https://www.fintax.tech/snap/token`);
     if (!tokenResponse.ok) {
-      throw new Error('Network response was not ok');
+      throw new Error("Network response was not ok");
     }
     const jsObj = await tokenResponse.json();
     const tokenString = JSON.stringify(jsObj.data);
     await snap.request({
-      method: 'snap_manageState',
+      method: "snap_manageState",
       params: {
-        operation: 'update',
+        operation: "update",
         newState: { ut: tokenString },
       },
     });
@@ -80,11 +76,11 @@ async function getToken() {
 async function getInfo() {
   const ut = await getToken();
   const accounts = await ethereum.request<string[]>({
-    method: 'eth_requestAccounts',
+    method: "eth_requestAccounts",
   });
-  assert(accounts, 'Ethereum provider did not return accounts.');
-  const chainId = await ethereum.request({ method: 'eth_chainId' });
-  assert(chainId, 'Ethereum provider did not return chain id.');
+  assert(accounts, "Ethereum provider did not return accounts.");
+  const chainId = await ethereum.request({ method: "eth_chainId" });
+  assert(chainId, "Ethereum provider did not return chain id.");
   const info = {
     ut,
     accounts,
