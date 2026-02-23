@@ -7,7 +7,7 @@
     "url": "https://github.com/InTaxDev/fintax-snap.git"
   },
   "source": {
-    "shasum": "dMNPliBnqJJ3Rb+O9Xz4/7nXSetXsk4w6lJwf7du5K8=",
+    "shasum": "oipnBy/oZ5Beu1hJ20uASyk9rdscPn9+KsiadsRaqM4=",
     "location": {
       "npm": {
         "filePath": "dist/bundle.js",
@@ -26,5 +26,6 @@
     },
     "endowment:ethereum-provider": {}
   },
+  "platformVersion": "4.4.2",
   "manifestVersion": "0.1"
 }
